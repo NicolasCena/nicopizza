@@ -1,13 +1,15 @@
 import React from 'react';
-import './App.css';
-import { Login } from './containers/Login';
+import { BrowserRouter } from "react-router-dom";
+import { Navigation } from './router/Navigation';
+
 
 function App() {
   return (
-    <div>
-      <h1 className='prueba'>pruebita</h1>
-      <Login />
-    </div>
+    <>
+      <BrowserRouter>
+        <Navigation/>
+      </BrowserRouter>
+    </>
   );
 }
 
