@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { store } from './context/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './styles/index.scss';
 import './i18n/i18n';
 
 const container = document.getElementById('root')!;
@@ -22,3 +21,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
