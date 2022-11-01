@@ -1,4 +1,16 @@
 {
-    "hello": "hello"
+    "title_not_register": "Not registered yet?",
+    "message_subtitle_not_registre": "At NicoPizza we are experts in making pizzas. So if you're hungry, all you have to do is place your food order online with us.",
+    "your_email": "Your email",
+    "address_email": "Email address",
+    "your_password": "Your password",
+    "repeat_password": "Repeat password",
+    "newsletter_register": "I want to be part of Mi Telepi and receive personalized commercial communications.",
+    "privacy_policies": "I have read and accept the Privacy Policy and the general conditions of purchase.",
+    "create": "Create",
+    "field_not_Valid": "This field is not valid",
+    "log_in": "Login",
+    "register": "Register me",
+    "invited": "Login as a guest"
 }
 

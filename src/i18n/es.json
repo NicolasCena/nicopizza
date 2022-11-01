@@ -8,5 +8,8 @@
     "newsletter_register": "Quiero formar parte de Mi Telepi y recibir comunicaciones comerciales personalizadas.",
     "privacy_policies": "He leído y acepto la Política de Privacidad y las condiciones generales de compra.",
     "create": "Crear",
-    "field_not_Valid": "Este campo no es válido"
+    "field_not_Valid": "Este campo no es válido",
+    "log_in": "Iniciar sesión",
+    "register": "Registrarme",
+    "invited": "Ingresar como invitado"
 }
