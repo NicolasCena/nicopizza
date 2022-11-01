@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import { Home } from '../containers/Home';
-import { Login } from '../containers/Login';
+import { Login } from '../components/Login';
 
 export const Navigation = () => {
   return (

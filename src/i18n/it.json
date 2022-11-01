@@ -1,5 +1,16 @@
 {
-    "hello": "hola",
-
+    "title_not_register": "Non sei ancora registrato?",
+    "message_subtitle_not_registre": "In NicoPizza siamo esperti nel fare pizze. Quindi, se hai fame, non devi far altro che effettuare l'ordine di cibo online con noi.",
+    "your_email": "La tua email",
+    "address_email": "Indirizzo email",
+    "your_password": "La tua password",
+    "repeat_password": "Ripeti password",
+    "newsletter_register": "Voglio entrare a far parte di Mi Telepi e ricevere comunicazioni commerciali personalizzate.",
+    "privacy_policies": "Ho letto e accetto la Privacy Policy e le condizioni generali di acquisto.",
+    "create": "Creare",
+    "field_not_Valid": "Questo campo non è valido",
+    "log_in": "Accesso",
+    "register": "Registrati",
+    "invited": "Accedi come ospite"
 }
 

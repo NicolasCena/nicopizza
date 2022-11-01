@@ -1,0 +1,49 @@
+#userNotLoged {
+
+    .languages {
+        @include flex($justify: flex-end);
+    }
+
+    .options {
+        @include flex($height: 80vh, $width: auto);
+        background-color: $primary-color;
+
+        @media screen and (min-height: 320px) {
+            @include flex($direction: column);
+        }
+
+        &__container {
+            @include flex($direction: column);
+
+            & > button {
+                margin: 10px 15px;
+                width: 150px;
+                border-radius: 4px;
+                outline: none;
+                appearance: none;
+                border: 1px solid black;
+                padding: 5px 0;
+            }
+        }
+
+        &__image {
+
+            &-size {
+                width: 200px;
+                height: 200px;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 12s;
+                animation-name: rotate-pizza;
+
+                @keyframes rotate-pizza{
+                    0% {
+                        transform: rotate(0deg)
+                    } to {
+                        transform: rotate(1turn)
+                    }
+                }
+            }
+        }
+    }
+}
