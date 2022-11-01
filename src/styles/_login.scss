@@ -1,46 +1,124 @@
 #userNotLoged {
-
     .languages {
         @include flex($justify: flex-end);
     }
 
     .options {
-        @include flex($height: 80vh, $width: auto);
-        background-color: $primary-color;
-
-        @media screen and (min-height: 320px) {
-            @include flex($direction: column);
-        }
+        @include flex($height: 90vh);
 
         &__container {
-            @include flex($direction: column);
+            @include flex($width: 60%, $height: 50%);
+            background: linear-gradient(to right, #200122, #6f0000);
+            border-radius: 24px;
+            -webkit-box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
+            -moz-box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
+            box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
 
-            & > button {
-                margin: 10px 15px;
-                width: 150px;
-                border-radius: 4px;
-                outline: none;
-                appearance: none;
-                border: 1px solid black;
-                padding: 5px 0;
+            &-buttons {
+                @include flex($direction: column, $width: auto);
+            
+                & > button {
+                    margin: 10px 15px;
+                    width: 150px;
+                    border-radius: 4px;
+                    outline: none;
+                    appearance: none;
+                    border: 1px solid black;
+                    padding: 5px 4px;
+                    -webkit-box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
+                    -moz-box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
+                    box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: white;
+                    transition: 0.4s;
+                }
+
+                & > button:hover {
+                    background-color: rgba(255, 255, 255, 0.8);
+                    color: #6f0000;
+                    transition: 0.7s;
+                }
+
+                & > button:active {
+                    background-color: rgba(191, 191, 191, 0.65);
+                    color: white;
+                }
+            }
+
+            &-image {
+
+                .image-size {
+                    width: 90%;
+                    height: 90%;
+                    max-width: 250px;
+                    max-height: 250px;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: linear;
+                    animation-duration: 12s;
+                    animation-name: rotate-pizza;
+    
+                    @keyframes rotate-pizza{
+                        0% {
+                            transform: rotate(0deg)
+                        } to {
+                            transform: rotate(1turn)
+                        }
+                    }
+                }
             }
         }
+    }
+}
 
-        &__image {
+@media screen and (max-width: 425px) {
+    #userNotLoged {
 
-            &-size {
-                width: 200px;
-                height: 200px;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-                animation-duration: 12s;
-                animation-name: rotate-pizza;
-
-                @keyframes rotate-pizza{
-                    0% {
-                        transform: rotate(0deg)
-                    } to {
-                        transform: rotate(1turn)
+        .languages {
+            @include flex($justify: flex-end);
+        }
+    
+        .options {
+            @include flex($height: 90%);
+    
+            &__container {
+                background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    
+                &-buttons {
+                    @include flex($direction: column, $width: auto);
+                
+                    & > button {
+                        margin: 10px 15px;
+                        width: 70%;
+                        border-radius: 4px;
+                        outline: none;
+                        appearance: none;
+                        border: 1px solid black;
+                        padding: 5px 4px;
+                        -webkit-box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
+                        -moz-box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
+                        box-shadow: -4px 10px 11px -6px rgba(0,0,0,0.75);
+                    }
+                }
+    
+                &-image {
+    
+                    .image-size {
+                        width: 90%;
+                        height: 90%;
+                        max-width: 250px;
+                        max-height: 250px;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: linear;
+                        animation-duration: 12s;
+                        animation-name: rotate-pizza;
+        
+                        @keyframes rotate-pizza{
+                            0% {
+                                transform: rotate(0deg)
+                            } to {
+                                transform: rotate(1turn)
+                            }
+                        }
                     }
                 }
             }

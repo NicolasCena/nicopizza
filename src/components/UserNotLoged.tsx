@@ -28,12 +28,14 @@ export const UserNotLoged = () => {
         </div>
         <div className='options'>
             <div className='options__container'>
-                <button>{t("log_in")}</button>
-                <button>{t("register")}</button>
-                <button>{t("invited")}</button>
-            </div>
-            <div className='options__image'>
-                <img src={pizzaNotLog} alt="Pizza" className='options__image-size'/>
+                <div className='options__container-buttons'>
+                    <button className='button__option-login'>{t("log_in")}</button>
+                    <button className='button__option-register'>{t("register")}</button>
+                    <button className='button__option-invited'>{t("invited")}</button>
+                </div>
+                <div className='options__container-image'>
+                    <img src={pizzaNotLog} alt="Pizza" className='image-size'/>
+                </div>
             </div>
         </div>
     </div>
