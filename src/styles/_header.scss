@@ -1,0 +1,102 @@
+#HeaderVideoContainer {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    transition: 1s;
+
+    .image {
+        width: 100%;
+        height: 100%;
+        transition: 1s;
+        filter: grayscale(.8);
+    }
+
+    .container {
+        @include flex($direction: column);
+        top: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        .container__texts {
+            width: 100%;
+            
+            &-title {
+                color: $yellow-light-color;
+                font-family: "Nothing You Could Do", cursive;
+                font-size: 5rem;
+            }
+
+            &-firstText {
+                color: white;
+                font-weight: 700;
+                font-size: 2rem;
+            }
+
+            
+            &-secondText {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+
+                .secondText {
+                    font-size: 1.4rem;
+                    color: white;
+                    min-width: 200px;
+                    max-width: 340px;
+                    margin: 5px 0 20px 0;
+                }
+            }
+        }
+
+        .container__buttons {
+            &-boton {
+                outline: none;
+                border: 1px solid $yellow-light-color;
+                padding: 15px;
+                margin: 0 10px;
+                border-radius: 1px;
+                appearance: none;
+                background-color: $yellow-light-color;
+                font-weight: 700;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.462);
+                    color: $yellow-light-color;
+                    border: 1px solid $yellow-light-color;
+                }
+            }
+
+            &-boton:first-child {
+                background-color: rgba(0, 0, 0, 0.462);
+                color: white;
+                border: 1px solid white;
+
+                &:hover {
+                    background-color: $yellow-light-color;
+                    color: black;
+                    border: 1px solid $yellow-light-color;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    #HeaderVideoContainer {
+        position: relative;
+        width: 100%;
+        transition: 1s;
+        height: 50vh;
+    
+        .image {
+            width: 100%;
+            height: 100%;
+            transition: 1s;
+        }
+    }
+}

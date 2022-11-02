@@ -1,9 +1,20 @@
 @import './constants';
 @import './mixins';
 @import './login';
+@import './header';
+@import './services';
 
+// Seteamos atributos globales
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: $Open-Sans;
+    transition: 1s;
+    font-size: 1.2rem;
+}
+
+// Definimos el rem global
+html {
+    font-size: 62.5%;
 }

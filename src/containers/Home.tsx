@@ -2,8 +2,6 @@ import React from 'react'
 import { NavBar } from '../components/Navbar'
 import { useAppSelector, useAppDispatch } from '../redux/hooks';
 import { changeLog, selectGlobals } from '../features/globalsSlice';
-import YouTube, { YouTubeProps } from 'react-youtube';
-
 
 export const Home = () => {
   const { nameUser, isLoged} = useAppSelector(selectGlobals);
@@ -14,29 +12,15 @@ export const Home = () => {
 
     !!userIsLoged && dispatch(changeLog(true));
   };
-  const videoOptions = {
-    playerVars: {
-      autoplay: 1,
-      controls: 0,
-      rel: 0,
-      showinfo: 0,
-      mute: 1,
-      loop: 1
-    }
-  };
+
 
   return (
     <>
       <header>
         <NavBar />
-
       </header>
       <main>
-
         <div>
-            <div>
-            <YouTube videoId="0E7lZMwhGcA" opts={videoOptions} />
-            </div>
             <div>
               <div>
                 <div>
@@ -51,10 +35,7 @@ export const Home = () => {
               </div>
               <div></div>
             </div>
-            <div>
-              <div></div>
-              <div></div>
-            </div>
+
             <div>
               <h2>OUR SERVICES</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
