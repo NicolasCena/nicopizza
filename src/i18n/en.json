@@ -11,6 +11,13 @@
     "field_not_Valid": "This field is not valid",
     "log_in": "Login",
     "register": "Register me",
-    "invited": "Login as a guest"
+    "invited": "Login as a guest",
+
+    "business_hours": "Open Monday through Friday",
+    "business_hours_two": "8:00 AM - 9:00 PM",
+    "business_direction": "Suite 721 Valladolid VA 10016",
+    "telephone_consultations": "Telephone consultations",
+    "exact_address": "198 West 21st Street",
+    "phone_number": "000 (123) 456 7890"
 }
 

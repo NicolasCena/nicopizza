@@ -6,3 +6,14 @@
     width: $width;
     height: $height;
 }
+
+@mixin openSans($size: 1) {
+    font-family: $Open-Sans;
+    font-size: $size + rem;
+};
+
+@mixin openSansBold($size: 1) {
+    font-family: $Open-Sans;
+    font-weight: 700;
+    font-size: $size + rem;
+};

@@ -12,11 +12,11 @@ interface props {
 export const CardServices = ({ textCard, titleCard, source}: props) => {
   const { t, i18n } = useTranslation();
   return (
-    <div id="services">
+    <div id="services_component">
       <div className='card'>
-      <FontAwesomeIcon icon={source} className="card__image"/>
-        <h3 className="card__title">t({titleCard})</h3>
-        <p className="card__text">t({textCard})</p>
+        <FontAwesomeIcon icon={source} className="card__image"/>
+        <h3 className="card__title">{t(titleCard)}</h3>
+        <p className="card__text">{t(textCard)}</p>
       </div>
     </div>
   )

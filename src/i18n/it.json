@@ -11,6 +11,13 @@
     "field_not_Valid": "Questo campo non è valido",
     "log_in": "Accesso",
     "register": "Registrati",
-    "invited": "Accedi come ospite"
+    "invited": "Accedi come ospite",
+
+    "business_hours": "Aperto dal lunedì al venerdì",
+    "business_hours_two": "8:00 - 21:00",
+    "business_direction": "Suite 721 Valladolid VA 10016",
+    "telephone_consultations": "Consulenze telefoniche",
+    "exact_address": "198 West 21st Street",
+    "phone_number": "000 (123) 456 7890"
 }
 
