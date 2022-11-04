@@ -1,24 +1,113 @@
-#services {
-    background-color: black;
-    width: 100%;
-    height: 300px;
-    @include flex($direction: row);
+#services_section {
+    @include flex($direction: row, $height: 150px);
 
-    .card {
-        width: 30%;
-        &__image {
-            width: 30px;
-            height: 30px;
-            color: black;
+    .contact {
+        width: 75%;
+        background-color: black;
+        padding: 20px 0;
+        @include flex($direction: row);
+        padding-left: 100px;
+
+        #services_component {
+            background-color: black;
+            height: auto;
+            @include flex($direction: row);
+            width: 20%;
+        
+            .card {
+                background-color: black;
+                width: 100%;
+                @include flex($direction: column);
+                margin: 10px 0;
+
+                &__image {
+                    width: 30px;
+                    height: 30px;
+                    color: $yellow-light-color;
+                    margin: 5px 0;
+                }
+        
+                &__title {  
+                    color: white;
+                    @include openSansBold($size: 1.2);
+                    margin: 5px 0;
+                }
+        
+                &__text{
+                    color: $gray-color;
+                    margin: 3px 0;
+                }
+            }
+        }        
+    }
+
+    .social {
+        background-color: $yellow-light-color;
+        @include flex($width: 25%);
+        transition: .5s;
+
+        &__container {
+            @include flex();
+            
+            .box-icon {
+                .icon__item {
+                    color: rgb(0, 0, 0);
+                    margin: 20px;
+                    height: 30px;
+                    width: 30px;
+                    font-size: 25px;
+                    cursor: pointer;
+                }
+            }
         }
+    }
+}
 
-        &__title {  
-            color: black;
+@media screen and (max-width: 1500px) {
+    #services_section {
+        .contact {
+            padding-left: 50px;
+
+            #services_component {
+                width: 30%;
+            }
+        }      
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #services_section {
+        @include flex($direction: column);
+
+        .contact {
+            width: 100%;
+            padding-left: 0;
+    
+            #services_component {
+                @include flex($direction: row);
+                width: 30%;
+            }        
         }
+    
+        .social {
+            @include flex();
+            transition: .5s;
+    
+            &__container {
+                @include flex();
+                padding: 15px 0;
 
-        &__text{
-            color: black;
-
+                .box-icon {
+                    .icon__item {
+                        color: rgb(0, 0, 0);
+                        margin: 20px 30px;
+                        height: 30px;
+                        width: 30px;
+                        font-size: 25px;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 }

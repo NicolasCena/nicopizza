@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 
 export const NavBar = () => {
   return (
-<Navbar bg="light" expand="lg">
+<Navbar expand="lg">
       <Container>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
