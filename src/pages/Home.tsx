@@ -4,6 +4,7 @@ import { Footer } from '../containers/Footer';
 import { HeaderVideoContainer } from '../containers/HeaderVideoContainer';
 import about from '../assets/about.jpg';
 import { ContactContainer } from '../containers/ContactContainer';
+import { WelcomeSection } from '../containers/WelcomeSection';
 
 export const Home = () => {
   return (
@@ -14,7 +15,7 @@ export const Home = () => {
         <main>
             <HeaderVideoContainer />
             <ContactContainer />
-
+            <WelcomeSection />
             <div>
               <div>
                 <img src={about} alt="About" />
