@@ -14,9 +14,15 @@ export const CardServices = ({ textCard, titleCard, source}: props) => {
   return (
     <div id="services_component">
       <div className='card'>
-        <FontAwesomeIcon icon={source} className="card__image"/>
-        <h3 className="card__title">{t(titleCard)}</h3>
-        <p className="card__text">{t(textCard)}</p>
+        <div className='icon__container'>
+          <FontAwesomeIcon icon={source} className="icon__container-image"/>
+        </div>
+        <div className='title__container'>
+          <h3 className="title">{t(titleCard)}</h3>
+        </div>
+        <div className='text__container'>
+          <p className="text">{t(textCard)}</p>
+        </div>
       </div>
     </div>
   )

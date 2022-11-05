@@ -1,0 +1,108 @@
+.welcome {
+    @include flex($height: 300px);
+    background-image: url('../assets/bg_4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    &__container-image {
+        @include flex($width: 50%, $justify: flex-end);
+
+        .image-size {
+            width: 80%;
+            height: 80%;
+            max-width: 250px;
+            max-height: 250px;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 12s;
+            animation-name: rotate-pizza;
+    
+            @keyframes rotate-pizza{
+                0% {
+                    transform: rotate(0deg)
+                } to {
+                    transform: rotate(1turn)
+                }
+            }
+        }
+    }
+
+    &__text {
+        text-align:left;
+        margin-left: 50px;
+        @include flex($direction: column, $width: 50%, $height: 100%, $align: flex-start);
+
+        &-title {
+            color: white;
+            display: flex;
+            @include openSansBold(1.4);
+            padding: 5px 0 5px 10px;
+
+            .image-icon {
+                mask-image: url('../assets/cutterPizza.svg');
+                mask-size: contain;
+                mask-position: center;
+                mask-repeat: no-repeat;
+                background-color: $yellow-light-color;;
+                width: 25px;
+                height: 25px;
+                display: block;
+                margin: 0 0 0 15px;
+            }
+        }
+
+        &-subtext {
+            color: $gray-color;
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .welcome {
+        @include flex($direction: row, $height: 220px);
+
+        &__container-image {
+            @include flex($width: 40%);
+    
+            .image-size {
+                width: 150px;
+                height: 150px;
+                max-width: 250px;
+                max-height: 250px;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 12s;
+                animation-name: rotate-pizza;
+                margin-left: 22px;
+        
+                @keyframes rotate-pizza{
+                    0% {
+                        transform: rotate(0deg)
+                    } to {
+                        transform: rotate(1turn)
+                    }
+                }
+            }
+        }
+
+        &__text {
+            width: 70%;
+            margin: 0 0 0 10%;
+            
+            &-title {
+                padding: 0;
+    
+                .image-icon {
+                    margin: 10px;
+                    padding: 0 10px 0 10px;
+                }
+            }
+            &-subtext {
+                color: $gray-color;
+                width: 80%;
+            }
+        }
+    }
+}
