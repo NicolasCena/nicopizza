@@ -20,7 +20,14 @@
     "exact_address": "198 Calle 21 Oeste",
     "phone_number": "000 (123) 456 7890",
 
-    "welcome_awards": "Spending more time together pays off!",
-    "advantage_awards": "Take advantage of exclusive promotions while enjoying what you like best."
+    "welcome_awards": "¡Pasar más tiempo juntos tiene recompensa!",
+    "advantage_awards": "Aprovecha promociones exclusivas mientras disfrutas de lo que más te gusta.",
+
+    "our_services_title": "Nuestros servicios",
+    "our_services_text": "Muy lejos, detrás de las montañas de palabras, lejos de los países Vokalia y Consonantia, viven los textos ciegos.",
+    "our_services_first_service_title": "Alimentos saludables",
+    "our_services_second_service_title": "Entrega más rápida",
+    "our_services_third_service_title": "Recetas Originales",
+    "our_services_service_text": "Incluso el todopoderoso Pointing no tiene control sobre los textos ciegos, es casi una ortografía"
 
 }
