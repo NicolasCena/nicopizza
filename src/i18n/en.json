@@ -20,7 +20,14 @@
     "exact_address": "198 West 21st Street",
     "phone_number": "000 (123) 456 7890",
 
-    "welcome_awards": "¡Pasar más tiempo juntos tiene recompensa!",
-    "advantage_awards": "Aprovecha promociones exclusivas mientras disfrutas de lo que más te gusta."
+    "welcome_awards": "Spending more time together pays off!",
+    "advantage_awards": "Take advantage of exclusive promotions while enjoying what you like best.",
+
+    "our_services_title": "Our Services",
+    "our_services_text": "Far away, behind the mountains of words, far from the Vokalia and Consonantia countries, live blind texts.",
+    "our_services_first_service_title": "Healthy Foods",
+    "our_services_second_service_title": "Faster delivery",
+    "our_services_third_service_title": "Original Recipes",
+    "our_services_service_text": "Even the almighty Pointing has no control over blind texts, it's almost a spell check"
 }
 

@@ -1,8 +1,7 @@
-import React from "react"
-import { CardServices } from '../components/CardServices'
-import { dataServices } from '../Mock/dataServices'
+import { CardServices } from '../components/CardServices';
+import { dataServices } from '../Mock/dataServices';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export const ContactContainer = () => {
   return (
