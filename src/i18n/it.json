@@ -21,6 +21,13 @@
     "phone_number": "000 (123) 456 7890",
 
     "welcome_awards": "Passare più tempo insieme ripaga!",
-    "advantage_awards": "Approfitta delle promozioni esclusive mentre ti godi ciò che ti piace di più."
+    "advantage_awards": "Approfitta delle promozioni esclusive mentre ti godi ciò che ti piace di più.",
+
+    "our_services_title": "I nostri servizi",
+    "our_services_text": "Lontano lontano, dietro la parola montagne, lontano dai paesi Vokalia e Consonantia, vivono i testi ciechi.",
+    "our_services_first_service_title": "Cibi sani",
+    "our_services_second_service_title": "Consegna più veloce",
+    "our_services_third_service_title": "Ricette originali",
+    "our_services_service_text": "Anche l'onnipotente Pointing non ha alcun controllo sui testi ciechi, è quasi non ortografico."
 }
 

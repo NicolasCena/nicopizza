@@ -69,6 +69,75 @@
     }
 }
 
+#ourServices_section {
+    @include flex($direction: column, $height: auto);
+    padding: 30px 0;
+    background-image: url('../assets/food.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    text-align: center;
+
+    h1 {
+        @include openSansBold(3.5);
+    }
+
+    .title__description {
+        margin: 20px 0 0 0;
+        width: 70%;
+        text-align: center;
+        @include openSansBold(2);
+    }
+
+    .contact {
+        padding: 20px 0;
+        @include flex($direction: row);
+
+        #services_component {
+            @include flex($direction: row, $height: auto, $width: 25%);
+            margin: 0 20px;
+
+            .card {
+                background-color: transparent;
+                width: 100%;
+                border: none;
+                @include flex($direction: column);
+                margin: 10px 0;
+
+                .icon__container {
+    
+                    &-image {
+                        width: 30px;
+                        height: 30px;
+                        color: black;
+                        margin: 5px 0;
+                        padding: 20px;
+                        border: 1px solid black;
+                        border-radius: 4px;
+                        -webkit-box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.75);
+                        -moz-box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.75);
+                        box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.75);
+                    }
+                }
+
+                .title__container {
+                    .title {  
+                        color: rgb(146, 141, 2);
+                        @include openSansBold($size: 1.2);
+                        margin: 5px 0;
+                    }
+                }
+
+                .text__container {
+                    .text{
+                        color: $gray-color;
+                        margin: 3px 0;
+                    }
+                }
+            }
+        }        
+    }
+}
+
 @media screen and (max-width: 1500px) {
     #services_section {
         .contact {
@@ -152,6 +221,27 @@
                     }
                 }
             }
+        }
+    }
+
+    #ourServices_section {
+        @include flex($direction: column, $height: auto);
+    
+        h1 {
+            @include openSansBold(3.2);
+        }
+    
+        .title__description {
+            width: 80%;
+            @include openSansBold(1.5);
+        }
+    
+        .contact {
+            @include flex($direction: column);
+    
+            #services_component {
+                @include flex($direction: row, $height: auto, $width: 90%);
+            }        
         }
     }
 }

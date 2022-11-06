@@ -1,10 +1,7 @@
-import { t } from 'i18next';
-import React from 'react'
 import { useTranslation } from 'react-i18next';
 import pizzaNotLog from '../assets/PizzaLogin.png';
 
-
-export const WelcomeSection = () => {
+export const WelcomeSectionContainer = () => {
   const { t } = useTranslation();
 
   return (
