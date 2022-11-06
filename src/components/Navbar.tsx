@@ -1,30 +1,34 @@
 import React from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
+import flagSpain from '../assets/flagSpain.png';
+import flagItaly from '../assets/flagItaly.png';
+import flagGB from '../assets/flagGB.png';
+import { useTranslation } from 'react-i18next';
 
 export const NavBar = () => {
+
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng:string) => {
+      i18n.changeLanguage(lng);
+  };
+
   return (
-<Navbar expand="lg">
+    <Navbar expand="lg">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">NicoPizza</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link className='languages'>
+              <img src={flagSpain} alt="" onClick={() => changeLanguage('es')}/>
+              <img src={flagItaly} alt="" onClick={() => changeLanguage('it')}/>
+              <img src={flagGB} alt="" onClick={() => changeLanguage('en')}/>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

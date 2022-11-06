@@ -1,12 +1,60 @@
  nav {
     background-color: $primary-color;
-    height: 75px;
+    height: 65px;
+    color: white;
 
-    .container > a {
+    .container {
         color: white;
+        display: flex;
+        justify-content:space-between;
+        width: 100%;
+        align-items: center;
+        height: 100%;
+    
+        .navbar-brand {
+            color: white;
+            @include openSansBold(2);
+        }
 
-        .navbar-nav > .nav-link {
-            color: white !important;
+        .navbar-toggler {
+
+            &-icon {
+                color: white;
+            }
+        }
+
+        .navbar-collapse {
+            @include flex($justify: flex-end);
+            text-align: center;
+            margin: auto;
+
+            .navbar-nav {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                text-align: center;
+                
+
+                .nav-link {
+                    color: white;
+                }
+
+                .nav-link.languages > img{
+                    width: 20px;
+                    height: 20px;
+                    margin: 0 5px;
+                }
+
+                .nav-item {
+                    .nav-link {
+
+                        &::after {
+
+                        }
+                    }
+                }
+            }
         }
     }
  }
