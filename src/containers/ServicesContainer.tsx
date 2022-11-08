@@ -10,7 +10,7 @@ export const ServicesContainer = () => {
   return (
     <div id="ourServices_section">
         <h1>{t('our_services_title')}</h1>
-        <p className='title__description'>{t('our_services_text')}</p>
+        <p className='title__description' data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">{t('our_services_text')}</p>
         <div className="contact">
         {
             dataOurServices.map( (item,index) => 

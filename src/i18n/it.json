@@ -1,4 +1,10 @@
 {
+
+    "header_title": "Abbiamo cucinato la ricetta della pizza desiderata",
+    "header_subtext_title": "Un piccolo fiume chiamato Duden scorre vicino al loro luogo e gli fornisce la necessaria regelialia",
+    "header_view_menu": "Visualizza menu",
+    "header_order_now": "Ordina ora",
+    
     "title_not_register": "Non sei ancora registrato?",
     "message_subtitle_not_registre": "In NicoPizza siamo esperti nel fare pizze. Quindi, se hai fame, non devi far altro che effettuare l'ordine di cibo online con noi.",
     "your_email": "La tua email",
@@ -28,6 +34,11 @@
     "our_services_first_service_title": "Cibi sani",
     "our_services_second_service_title": "Consegna più veloce",
     "our_services_third_service_title": "Ricette originali",
-    "our_services_service_text": "Anche l'onnipotente Pointing non ha alcun controllo sui testi ciechi, è quasi non ortografico."
+    "our_services_service_text": "Anche l'onnipotente Pointing non ha alcun controllo sui testi ciechi, è quasi non ortografico.",
+
+    "counter_one": "Rami pizza",
+    "counter_two": "Premi",
+    "counter_three": "Cliente felice",
+    "counter_four" : "Squadra"
 }
 
