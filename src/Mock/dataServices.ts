@@ -1,4 +1,5 @@
-import { faPhone, faClock, faLocationCrosshairs, faMotorcycle, faSeedling, faPizzaSlice  } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faClock, faLocationCrosshairs, faMotorcycle, faSeedling, faPizzaSlice, faUtensils, faPeopleArrows} from '@fortawesome/free-solid-svg-icons';
+import { faStar, faFaceSmile  } from '@fortawesome/free-regular-svg-icons';
 
 export const dataServices = [
     {
@@ -36,3 +37,27 @@ export const dataOurServices = [
         textInfo: 'our_services_service_text'
     },
 ];
+
+export const dataStadistic = [
+    {
+        icono: faFaceSmile,
+        quantity: 10.567,
+        text: 'counter_three'
+    },
+    {
+        icono: faUtensils,
+        quantity: 900,
+        text: 'counter_one'
+    },
+    {
+        icono: faStar,
+        quantity: 85,
+        text: 'counter_two'
+    },
+    {
+        icono: faPeopleArrows,
+        quantity: 100,
+        text: 'counter_four'
+    },
+];
+
