@@ -138,6 +138,70 @@
     }
 }
 
+#stadistics_section {
+    position: relative;
+
+    .image_stadistic-section {
+        background-image: url('../assets/bg_2.jpg');
+        opacity: 1;
+        filter: grayscale(0.7);
+        background-repeat: repeat;
+        background-attachment: fixed;
+        @include flex($direction: column, $height: 300px);
+        text-align: center;
+    }
+
+    .contact {
+        @include flex($direction: row);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        #services_component {
+            @include flex($direction: row, $height: auto, $width: 25%);
+            margin: 0 20px;
+
+            .card {
+                background-color: transparent;
+                width: 100%;
+                border: none;
+                @include flex($direction: column);
+                margin: 10px 0;
+
+                .icon__container {
+                    &-image {
+                        width: 30px;
+                        height: 30px;
+                        color: $yellow-light-color;
+                        margin: 5px 0;
+                        padding: 20px;
+                        border: 1px solid $yellow-light-color;
+                        border-radius: 4px;
+                        -webkit-box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.75);
+                        -moz-box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.75);
+                        box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.75);
+                        background-color: rgba(0, 0, 0, 0.558);
+
+                    }
+                }
+
+                .counter {
+                    color: $yellow-light-color;
+                    @include openSansBold(3);
+                }
+
+                .text__container {
+                    .text{
+                        color: $yellow-light-color;
+                        margin: 3px 0;
+                        @include openSansBold(2);
+                    }
+                }
+            }
+        }        
+    }
+}
+
 @media screen and (max-width: 1500px) {
     #services_section {
         .contact {
@@ -241,6 +305,25 @@
     
             #services_component {
                 @include flex($direction: row, $height: auto, $width: 90%);
+            }        
+        }
+    }
+
+    #stadistics_section {
+        position: relative;
+        
+        .image_stadistic-section {
+            @include flex($direction: column, $height: 800px);
+            text-align: center;
+        }
+    
+        .contact {
+            @include flex($direction: row);
+            flex-wrap: wrap;
+
+            #services_component {
+                @include flex($direction: row, $width: 30%, $height: auto);
+                text-align: center;
             }        
         }
     }
