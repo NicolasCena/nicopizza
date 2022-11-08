@@ -1,4 +1,9 @@
 {
+    "header_title": "We cooked your desired pizza recipe",
+    "header_subtext_title": "A small river named Duden flows by their place and supplies it with the necessary regelialia",
+    "header_view_menu": "View Menu",
+    "header_order_now": "Order Now",
+
     "title_not_register": "Not registered yet?",
     "message_subtitle_not_registre": "At NicoPizza we are experts in making pizzas. So if you're hungry, all you have to do is place your food order online with us.",
     "your_email": "Your email",
@@ -28,6 +33,11 @@
     "our_services_first_service_title": "Healthy Foods",
     "our_services_second_service_title": "Faster delivery",
     "our_services_third_service_title": "Original Recipes",
-    "our_services_service_text": "Even the almighty Pointing has no control over blind texts, it's almost a spell check"
+    "our_services_service_text": "Even the almighty Pointing has no control over blind texts, it's almost a spell check",
+
+    "counter_one": "Pizza branches",
+    "counter_two": "Prizes",
+    "counter_three": "Happy Customer",
+    "counter_four" : "Team"
 }
 
