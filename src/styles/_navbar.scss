@@ -1,6 +1,6 @@
  nav {
     background-color: $primary-color;
-    height: 65px;
+    height: auto;
     color: white;
 
     .container {
@@ -12,30 +12,54 @@
         height: 100%;
     
         .navbar-brand {
-            color: white;
-            @include openSansBold(2);
+            margin-top: 10px;
+            margin-left: 10px;
+
+            .brand__container {
+                @include flex($direction: row);
+                text-align: center;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    color: $yellow-light-color;
+                    rotate: 285deg;
+                    margin: 2px;
+                    padding: 0 0 5px 0;
+                }
+
+                p {
+                    margin: 0 5px;
+                    color: white;
+                    @include openSansBold(1.6);
+                }
+            }
+            
+            p {
+                color: $yellow-light-color;
+                @include openSans(1.6);
+                text-align: center;
+            }
         }
 
         .navbar-toggler {
-
             &-icon {
                 color: white;
             }
         }
 
         .navbar-collapse {
-            @include flex($justify: flex-end);
-            text-align: center;
+            text-align: end;
+            justify-content: flex-end;
             margin: auto;
 
             .navbar-nav {
                 display: flex;
-                justify-content: center;
+                justify-content: space-around;
                 align-items: center;
                 height: 100%;
                 text-align: center;
-                
-
+                flex-direction: row;
                 .nav-link {
                     color: white;
                 }
@@ -44,15 +68,6 @@
                     width: 20px;
                     height: 20px;
                     margin: 0 5px;
-                }
-
-                .nav-item {
-                    .nav-link {
-
-                        &::after {
-
-                        }
-                    }
                 }
             }
         }
