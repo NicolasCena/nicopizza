@@ -38,6 +38,10 @@
     "counter_one": "Pizza branches",
     "counter_two": "Prizes",
     "counter_three": "Happy Customer",
-    "counter_four" : "Team"
+    "counter_four" : "Team",
+
+    "unit_price": "Unit Price",
+    "pizza_size": "Pizza size",
+    "add": "Add"
 }
 

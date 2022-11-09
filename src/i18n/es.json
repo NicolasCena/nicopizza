@@ -38,6 +38,10 @@
     "counter_one": "Sucursales de pizza",
     "counter_two": "Premios",
     "counter_three": "Cliente feliz",
-    "counter_four": "Equipo"
+    "counter_four": "Equipo",
+
+    "unit_price": "Precio unitario",
+    "pizza_size": "Tamaño de pizza",
+    "add": "Añadir"
 
 }
