@@ -5,6 +5,7 @@ import { ContactContainer } from '../containers/ContactContainer';
 import { WelcomeSectionContainer } from '../containers/WelcomeSectionContainer';
 import { ServicesContainer } from '../containers/ServicesContainer';
 import { StadisticsContainer } from '../containers/StadisticsContainer';
+import { PizzasContainer } from '../containers/PizzasContainer';
 
 export const Home = () => {
   return (
@@ -18,6 +19,7 @@ export const Home = () => {
             <WelcomeSectionContainer />
             <ServicesContainer />
             <StadisticsContainer />
+            <PizzasContainer />
         </main>
         <footer>
             <Footer />
