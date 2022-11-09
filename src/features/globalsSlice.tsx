@@ -4,11 +4,18 @@ import { RootState } from '../redux/store';
 export interface GlobalsState {
     isLoged: boolean,
     nameUser: string,
+    carrito: product[],
+}
+interface product {
+  pizzaName: string,
+  quantity: number,
+  pizzaType: string
 }
 
 const initialState: GlobalsState = {
   isLoged: false,
   nameUser: '',
+  carrito: []
 };
 
 export const globalsSlice = createSlice({
