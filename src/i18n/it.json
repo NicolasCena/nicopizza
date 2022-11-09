@@ -39,6 +39,10 @@
     "counter_one": "Rami pizza",
     "counter_two": "Premi",
     "counter_three": "Cliente felice",
-    "counter_four" : "Squadra"
+    "counter_four" : "Squadra",
+
+    "unit_price": "Prezzo unitario",
+    "pizza_size": "Pizza taglia",
+    "add": "Aggiungere"
 }
 

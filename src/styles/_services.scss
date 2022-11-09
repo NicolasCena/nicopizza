@@ -145,9 +145,10 @@
         background-image: url('../assets/bg_2.jpg');
         opacity: 1;
         filter: grayscale(0.7);
-        background-repeat: repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
         background-attachment: fixed;
-        @include flex($direction: column, $height: 300px);
+        @include flex($direction: column, $height: 400px);
         text-align: center;
     }
 
@@ -181,13 +182,21 @@
                         -moz-box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.75);
                         box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.75);
                         background-color: rgba(0, 0, 0, 0.558);
+                    }
 
+                    :hover {
+                        width: 40px;
+                        height: 40px;
+                        background: #f8b500;
+                        cursor: grab;
                     }
                 }
+
 
                 .counter {
                     color: $yellow-light-color;
                     @include openSansBold(3);
+                    -webkit-text-stroke: .5px black;
                 }
 
                 .text__container {
@@ -195,6 +204,7 @@
                         color: $yellow-light-color;
                         margin: 3px 0;
                         @include openSansBold(2);
+                        -webkit-text-stroke: .5px black;
                     }
                 }
             }
@@ -313,7 +323,7 @@
         position: relative;
         
         .image_stadistic-section {
-            @include flex($direction: column, $height: 800px);
+            @include flex($direction: column, $height: 400px);
             text-align: center;
         }
     
