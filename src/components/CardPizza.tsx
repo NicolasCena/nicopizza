@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { t } from 'i18next';
+import { FormEvent, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
     name: string,
@@ -15,31 +17,38 @@ interface Size {
 export const CardPizza = ({ name, toppings, size, url}: Props) => {
 
     const [ priceData, setPriceData ] = useState<number>(size[0].price);
-    const [ quantity, setQuantity ] = useState<number>(1);
 
     const handleChangePrice = (eleccion: string) => {
         parseInt(eleccion) === 1 ? setPriceData(size[0].price) : setPriceData(size[1].price)
     };
 
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        console.log(e)
+    }
+
+    const { t } = useTranslation();
+
   return (
-    <div className='cardPizza'>
-        <div className='image__container'>
+    <div id='pizza__card'>
+        <div className='card__image'>
             <img src={url} alt={name} />
         </div>
-        <div className='body'>
-            <h3 className='body__title'>{name}</h3>
-            <p className='body__toppings'>
-                { toppings.map( (item, index) => (
+        <div className='card__content'>
+            <div className='card__content-text'>
+                <h3 className='title'>{name}</h3>
+                <p className='toppings'>
+                    { toppings.map( (item, index) => (
 
-                    (index === 0) ? `${ ' ' + item}` : `${ ' ,' + item}`
+                        (index === 0) ? `${ ' ' + item}` : `${ ' , ' + item}`
 
-                ))}
-            </p>
-            <div className='body__size'>
-                <form className='body__size-container'>
+                    ))}
+                </p>
+            </div>
+            <div className='card__form'>
 
-                    <label>Size Pizza</label>
-                    <select onChange={ (e) => handleChangePrice(e.target.value)}>
+                <form className='card__form-container' onSubmit={(e) => handleSubmit(e)}>
+                    <label>{t("pizza_size")}</label>
+                    <select onChange={ (e) => handleChangePrice(e.target.value)} className='card__form-size'>
                         {
                             size.map( (item, index) => 
                                 <option 
@@ -50,15 +59,13 @@ export const CardPizza = ({ name, toppings, size, url}: Props) => {
                                 </option> )
                         }
                     </select>
-
-                    <div className='d-flex align-items-center text-center'>
-                        <button onClick={() => setQuantity( quantity - 1)} className="btn btn-success">-</button>
-                        <p>{quantity}</p>
-                        <button onClick={() => setQuantity( quantity + 1)} className="btn btn-success">+</button>
+                    <div className='price'>
+                        <p>{t("unit_price")}</p> {priceData}
                     </div>
 
+                    <input type='submit' value={t("add")!} className='submit__form'/>
                 </form>
-                <div className='body__price'>{priceData}</div>
+
             </div>
         </div>
     </div>

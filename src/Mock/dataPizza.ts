@@ -29,4 +29,10 @@ export const dataPizzaStore = [
         size: [{ sizePizza: 1, price: 10}, { sizePizza: 2, price: 21}],
         url: "https://s4d-images.telepizza.es/Products/Original/Telepi-Top_Campera-2361.png"
     },
+    {
+        name: "NicoPizza",
+        toppings: ["Salsa carbonara ", "Gouda", "Emmental", "Cheddar", "Queso fundido", "Havarti"],
+        size: [{ sizePizza: 1, price: 13}, { sizePizza: 2, price: 26}],
+        url: "https://s4d-images.telepizza.es/Products/Original/Telepi-Top_Campera-2361.png"
+    },
 ]
