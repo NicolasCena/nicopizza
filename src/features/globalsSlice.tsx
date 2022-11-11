@@ -25,10 +25,64 @@ export const globalsSlice = createSlice({
     changeLog: (state, action: PayloadAction<boolean>) => {
       state.isLoged = action.payload;
     },
+    addProduct: (state, action: PayloadAction<product>) => {
+
+      //Corroboramos que existe la pizza y el mismo tipo
+      let newArray = state.carrito.filter( item => 
+        ((item.pizzaName.toLowerCase() === action.payload.pizzaName.toLowerCase()) && 
+        (item.pizzaType.toLowerCase() === action.payload.pizzaType.toLowerCase()))
+      );
+
+      if(newArray.length > 0 && newArray[0]){
+        state.carrito.map( item => {
+          console.log(item)
+          if((item.pizzaName.toLowerCase() === action.payload.pizzaName.toLowerCase() && item.pizzaType.toLowerCase() === action.payload.pizzaType.toLowerCase())){
+            item.quantity = item.quantity + 1
+          }
+        })
+
+      }else{
+        state.carrito = [...state.carrito, action.payload];
+      }
+    },
+    restProduct: (state, action: PayloadAction<product>) => {
+      //Corroboramos que existe la pizza y el mismo tipo
+      const newArray = state.carrito.filter( item => 
+        ((item.pizzaName.toLowerCase() === action.payload.pizzaName.toLowerCase()) && 
+        (item.pizzaType.toLowerCase() === action.payload.pizzaType.toLowerCase()))
+      );
+
+      let addOne;
+
+      if(newArray.length > 0 && newArray[0]){
+        addOne = { pizzaName: newArray[0].pizzaName, quantity: newArray[0].quantity - 1, pizzaType: newArray[0].pizzaType }
+        let arraySinItem;
+
+        if(addOne.quantity === 0){
+          arraySinItem = state.carrito.filter( item => 
+            ((item.pizzaName.toLowerCase() !== action.payload.pizzaName.toLowerCase()) && 
+            (item.pizzaType.toLowerCase() !== action.payload.pizzaType.toLowerCase()))
+          )
+
+          state.carrito = arraySinItem;
+
+        }else{
+          state.carrito = [...state.carrito, addOne];
+        }
+      }
+    },
+    deleteProduct: (state, action: PayloadAction<product>) => {
+      //Corroboramos que existe la pizza y el mismo tipo
+      const newArray = state.carrito.filter( item => 
+        ((item.pizzaName.toLowerCase() !== action.payload.pizzaName.toLowerCase()) && 
+        (item.pizzaType.toLowerCase() !== action.payload.pizzaType.toLowerCase()))
+      );
+      state.carrito = newArray;
+    },
   },
 });
 
-export const { changeLog } = globalsSlice.actions;
+export const { changeLog, deleteProduct, restProduct, addProduct } = globalsSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
