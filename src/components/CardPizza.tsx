@@ -1,14 +1,13 @@
-import { t } from 'i18next';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { addProduct } from '../features/globalsSlice';
 interface Props {
     name: string,
     toppings: string[],
     size: Size[],
     url: string
 }
-
 interface Size {
     sizePizza: number,
     price: number
@@ -16,17 +15,27 @@ interface Size {
 
 export const CardPizza = ({ name, toppings, size, url}: Props) => {
 
+    // Estado global y traducciones
+    const { isLoged, carrito, nameUser } = useAppSelector( state => state.globals);
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch()
+    // Estados locales
     const [ priceData, setPriceData ] = useState<number>(size[0].price);
+    const [ sizePizza, setSizePizza] = useState<string>('Mediana');
 
+    // Control del tamaño de pizza y precio
     const handleChangePrice = (eleccion: string) => {
-        parseInt(eleccion) === 1 ? setPriceData(size[0].price) : setPriceData(size[1].price)
+        setSizePizza(parseInt(eleccion) === 1 ? "Mediana" : "Familiar");
+        parseInt(eleccion) === 1 ? setPriceData(size[0].price) : setPriceData(size[1].price);
     };
 
+    // Controlamos el submit
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        console.log(e)
-    }
+        e.preventDefault();
+        dispatch(addProduct({pizzaName: name, quantity: 1, pizzaType: sizePizza}))
+    };
 
-    const { t } = useTranslation();
+    console.log(name)
 
   return (
     <div id='pizza__card'>
@@ -45,7 +54,6 @@ export const CardPizza = ({ name, toppings, size, url}: Props) => {
                 </p>
             </div>
             <div className='card__form'>
-
                 <form className='card__form-container' onSubmit={(e) => handleSubmit(e)}>
                     <label>{t("pizza_size")}</label>
                     <select onChange={ (e) => handleChangePrice(e.target.value)} className='card__form-size'>
@@ -53,7 +61,7 @@ export const CardPizza = ({ name, toppings, size, url}: Props) => {
                             size.map( (item, index) => 
                                 <option 
                                     key={index} 
-                                    value={item.sizePizza} 
+                                    value={item.sizePizza}
                                 >
                                     {item.sizePizza === 1 ? "Mediana" : "Familiar"}
                                 </option> )
@@ -62,10 +70,8 @@ export const CardPizza = ({ name, toppings, size, url}: Props) => {
                     <div className='price'>
                         <p>{t("unit_price")}</p> {priceData}
                     </div>
-
                     <input type='submit' value={t("add")!} className='submit__form'/>
                 </form>
-
             </div>
         </div>
     </div>
