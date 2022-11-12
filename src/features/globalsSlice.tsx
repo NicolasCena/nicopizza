@@ -25,25 +25,8 @@ export const globalsSlice = createSlice({
     changeLog: (state, action: PayloadAction<boolean>) => {
       state.isLoged = action.payload;
     },
-    addProduct: (state, action: PayloadAction<product>) => {
-
-      //Corroboramos que existe la pizza y el mismo tipo
-      let newArray = state.carrito.filter( item => 
-        ((item.pizzaName.toLowerCase() === action.payload.pizzaName.toLowerCase()) && 
-        (item.pizzaType.toLowerCase() === action.payload.pizzaType.toLowerCase()))
-      );
-
-      if(newArray.length > 0 && newArray[0]){
-        state.carrito.map( item => {
-          console.log(item)
-          if((item.pizzaName.toLowerCase() === action.payload.pizzaName.toLowerCase() && item.pizzaType.toLowerCase() === action.payload.pizzaType.toLowerCase())){
-            item.quantity = item.quantity + 1
-          }
-        })
-
-      }else{
-        state.carrito = [...state.carrito, action.payload];
-      }
+    addProduct: (state, action: PayloadAction<Array<product>>) => {
+      state.carrito = action.payload
     },
     restProduct: (state, action: PayloadAction<product>) => {
       //Corroboramos que existe la pizza y el mismo tipo

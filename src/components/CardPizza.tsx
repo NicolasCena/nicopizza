@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { addProduct } from '../features/globalsSlice';
@@ -13,6 +13,12 @@ interface Size {
     price: number
 }
 
+interface product {
+    pizzaName: string,
+    quantity: number,
+    pizzaType: string
+  }
+
 export const CardPizza = ({ name, toppings, size, url}: Props) => {
 
     // Estado global y traducciones
@@ -24,18 +30,32 @@ export const CardPizza = ({ name, toppings, size, url}: Props) => {
     const [ sizePizza, setSizePizza] = useState<string>('Mediana');
 
     // Control del tamaño de pizza y precio
-    const handleChangePrice = (eleccion: string) => {
-        setSizePizza(parseInt(eleccion) === 1 ? "Mediana" : "Familiar");
-        parseInt(eleccion) === 1 ? setPriceData(size[0].price) : setPriceData(size[1].price);
-    };
+    const handleChangePrice = useCallback((eleccion: string) => {
+            setSizePizza(parseInt(eleccion) === 1 ? "Mediana" : "Familiar");
+            parseInt(eleccion) === 1 ? setPriceData(size[0].price) : setPriceData(size[1].price);
+    },[]);
 
     // Controlamos el submit
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(addProduct({pizzaName: name, quantity: 1, pizzaType: sizePizza}))
-    };
+        //Corroboramos que existe la pizza y el mismo tipo
+        let newArray = carrito.filter( item => 
+            ((item.pizzaName.toLowerCase() === name.toLowerCase()) && (item.pizzaType.toLowerCase() === sizePizza.toLowerCase()))
+        );
 
-    console.log(name)
+        if(newArray.length > 0){
+            let newArrayTwo = carrito.map( item => {
+                if(item.pizzaName.toLowerCase() === name.toLowerCase() && item.pizzaType.toLowerCase() === sizePizza.toLowerCase()){
+                    return item = {pizzaName: name, quantity: newArray[0].quantity + 1, pizzaType: sizePizza}
+                }else{
+                    return item
+                }
+            });
+            dispatch(addProduct(newArrayTwo))
+        }else {
+            dispatch(addProduct([...carrito, {pizzaName: name, quantity: 1, pizzaType: sizePizza}]))
+        }
+    }
 
   return (
     <div id='pizza__card'>
