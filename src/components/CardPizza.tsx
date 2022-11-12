@@ -13,16 +13,10 @@ interface Size {
     price: number
 }
 
-interface product {
-    pizzaName: string,
-    quantity: number,
-    pizzaType: string
-  }
-
 export const CardPizza = ({ name, toppings, size, url}: Props) => {
 
     // Estado global y traducciones
-    const { isLoged, carrito, nameUser } = useAppSelector( state => state.globals);
+    const { carrito } = useAppSelector( state => state.globals);
     const { t } = useTranslation();
     const dispatch = useAppDispatch()
     // Estados locales
@@ -31,8 +25,8 @@ export const CardPizza = ({ name, toppings, size, url}: Props) => {
 
     // Control del tamaño de pizza y precio
     const handleChangePrice = useCallback((eleccion: string) => {
-            setSizePizza(parseInt(eleccion) === 1 ? "Mediana" : "Familiar");
-            parseInt(eleccion) === 1 ? setPriceData(size[0].price) : setPriceData(size[1].price);
+        setSizePizza(parseInt(eleccion) === 1 ? "Mediana" : "Familiar");
+        parseInt(eleccion) === 1 ? setPriceData(size[0].price) : setPriceData(size[1].price);
     },[]);
 
     // Controlamos el submit
@@ -46,15 +40,15 @@ export const CardPizza = ({ name, toppings, size, url}: Props) => {
         if(newArray.length > 0){
             let newArrayTwo = carrito.map( item => {
                 if(item.pizzaName.toLowerCase() === name.toLowerCase() && item.pizzaType.toLowerCase() === sizePizza.toLowerCase()){
-                    return item = {pizzaName: name, quantity: newArray[0].quantity + 1, pizzaType: sizePizza}
+                    return item = {pizzaName: name, quantity: newArray[0].quantity + 1, pizzaType: sizePizza, priceUnity: priceData}
                 }else{
                     return item
-                }
+                };
             });
             dispatch(addProduct(newArrayTwo))
         }else {
-            dispatch(addProduct([...carrito, {pizzaName: name, quantity: 1, pizzaType: sizePizza}]))
-        }
+            dispatch(addProduct([...carrito, {pizzaName: name, quantity: 1, pizzaType: sizePizza, priceUnity: priceData}]))
+        };
     }
 
   return (

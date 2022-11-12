@@ -9,7 +9,8 @@ export interface GlobalsState {
 interface product {
   pizzaName: string,
   quantity: number,
-  pizzaType: string
+  pizzaType: string,
+  priceUnity: number
 }
 
 const initialState: GlobalsState = {
@@ -27,32 +28,11 @@ export const globalsSlice = createSlice({
     },
     addProduct: (state, action: PayloadAction<Array<product>>) => {
       state.carrito = action.payload
+
+      console.log(state.carrito)
     },
-    restProduct: (state, action: PayloadAction<product>) => {
-      //Corroboramos que existe la pizza y el mismo tipo
-      const newArray = state.carrito.filter( item => 
-        ((item.pizzaName.toLowerCase() === action.payload.pizzaName.toLowerCase()) && 
-        (item.pizzaType.toLowerCase() === action.payload.pizzaType.toLowerCase()))
-      );
-
-      let addOne;
-
-      if(newArray.length > 0 && newArray[0]){
-        addOne = { pizzaName: newArray[0].pizzaName, quantity: newArray[0].quantity - 1, pizzaType: newArray[0].pizzaType }
-        let arraySinItem;
-
-        if(addOne.quantity === 0){
-          arraySinItem = state.carrito.filter( item => 
-            ((item.pizzaName.toLowerCase() !== action.payload.pizzaName.toLowerCase()) && 
-            (item.pizzaType.toLowerCase() !== action.payload.pizzaType.toLowerCase()))
-          )
-
-          state.carrito = arraySinItem;
-
-        }else{
-          state.carrito = [...state.carrito, addOne];
-        }
-      }
+    restProduct: (state, action: PayloadAction<Array<product>>) => {
+      state.carrito = action.payload
     },
     deleteProduct: (state, action: PayloadAction<product>) => {
       //Corroboramos que existe la pizza y el mismo tipo
