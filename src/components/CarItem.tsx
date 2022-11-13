@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -66,7 +66,7 @@ export const CarItem = ({pizzaName, pizzaType, quantity, priceUnity, id}:Props) 
     const deleteItem = () => {
       let newArrayWithoutElementSelectioned = carrito.filter( item => item.id !== id );
       
-      dispatch(restTotal(priceUnity))
+      dispatch(restTotal(priceUnity*count))
       dispatch(deleteProduct(newArrayWithoutElementSelectioned))
     };
 
@@ -75,7 +75,7 @@ export const CarItem = ({pizzaName, pizzaType, quantity, priceUnity, id}:Props) 
       <td className="carModal__title">{pizzaName}</td>
       <td className="carModal__counter">
           <button className="carModal__counter-rest" onClick={() => restProductQuantity()} disabled={ count === 0 ? true : false}>{'<'}</button>
-          <input type="number" value={count} className="carModal__counter-input"/>
+          <input type="number" defaultValue={count} className="carModal__counter-input" placeholder=" "/>
           <button className="carModal__counter-add" onClick={() => addProductQuantity()}>{'>'}</button>
       </td>
       <td className="carModal__tipo">{pizzaType}</td>

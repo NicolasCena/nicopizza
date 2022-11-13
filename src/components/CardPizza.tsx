@@ -17,14 +17,13 @@ interface Size {
 export const CardPizza = ({ name, toppings, size, url}: Props) => {
 
     // Estado global y traducciones
-    const { carrito } = useAppSelector( state => state.globals);
+    const { carrito, total } = useAppSelector( state => state.globals);
     const { t } = useTranslation();
     const dispatch = useAppDispatch()
     // Estados locales
     const [ priceData, setPriceData ] = useState<number>(size[0].price);
     const [ sizePizza, setSizePizza] = useState<string>('Mediana');
     const [ idPizzaSeleccionada, setIdpizzaSeleccionada ] = useState<string>(size[0].id)
-    console.log(name)
     // Control del tamaño de pizza y precio
     const handleChangePrice = (e: ChangeEvent<HTMLSelectElement>) => {
 
@@ -63,9 +62,11 @@ export const CardPizza = ({ name, toppings, size, url}: Props) => {
             });
             dispatch(addTotal(priceData));
             dispatch(addProduct(newObjectPizzaChanged));
+
         }else {
             dispatch(addTotal(priceData));
             dispatch(addProduct([...carrito, {pizzaName: name, quantity: 1, pizzaType: sizePizza, priceUnity: priceData, id: idPizzaSeleccionada}]));
+
         };
     }
 

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../redux/store';
 
+
 export interface GlobalsState {
     isLoged: boolean,
     nameUser: string,
@@ -30,27 +31,36 @@ export const globalsSlice = createSlice({
       state.isLoged = action.payload;
     },
     addProduct: (state, action: PayloadAction<Array<product>>) => {
-      state.carrito = action.payload
+      localStorage.setItem('carActual', JSON.stringify(action.payload));
+      state.carrito = action.payload;    
     },
     restProduct: (state, action: PayloadAction<Array<product>>) => {
-      state.carrito = action.payload
+      localStorage.setItem('carActual', JSON.stringify(action.payload));
+      state.carrito = action.payload;    
     },
     deleteProduct: (state, action: PayloadAction<Array<product>>) => {
-      //Corroboramos que existe la pizza y el mismo tipo
+      localStorage.setItem('carActual', JSON.stringify(action.payload));
+
+      if(action.payload.length === 0){
+        state.total = 0;
+      }
       state.carrito = action.payload;
     },
     restTotal: (state, action: PayloadAction<number>) => {
-      //Corroboramos que existe la pizza y el mismo tipo
+      localStorage.setItem('total', JSON.stringify(state.total - action.payload));
       state.total -= action.payload;
     },
     addTotal: (state, action: PayloadAction<number>) => {
-      //Corroboramos que existe la pizza y el mismo tipo
+      localStorage.setItem('total', JSON.stringify(state.total + action.payload));
       state.total += action.payload;
     },
+    addTotalFromLocal: (state, action: PayloadAction<number>) => {
+      state.total = action.payload;
+    }
   },
 });
 
-export const { changeLog, deleteProduct, restProduct, addProduct, restTotal, addTotal} = globalsSlice.actions;
+export const { changeLog, deleteProduct, restProduct, addProduct, restTotal, addTotal, addTotalFromLocal} = globalsSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
