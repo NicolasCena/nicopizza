@@ -4,7 +4,7 @@ import { dataPizzaStore } from '../Mock/dataPizza';
 
 export const PizzasContainer = () => {
 
-    const data = dataPizzaStore;
+  const data = dataPizzaStore;
 
   return (
     <div id='store__container'>
