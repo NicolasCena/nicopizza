@@ -4,13 +4,8 @@ nav {
     color: white;
 
     .container {
+        @include flex($justify: space-between);
         color: white;
-        display: flex;
-        justify-content:space-between;
-        width: 100%;
-        align-items: center;
-        height: 100%;
-    
         .navbar-brand {
             margin-top: 10px;
             margin-left: 10px;
@@ -54,14 +49,12 @@ nav {
             margin: auto;
 
             .navbar-nav {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                height: 100%;
-                text-align: center;
-                flex-direction: row;
+                @include flex($justify: flex-end);
+                text-align: right;
+
                 .nav-link {
                     color: white;
+                    margin: 0 10px;
                 }
 
                 .nav-link.languages > img{
@@ -72,4 +65,23 @@ nav {
             }
         }
     }
+}
+
+@media screen and (max-width: 400px) {
+    nav {
+        .container {
+            .navbar-collapse {
+                .navbar-nav {
+                    @include flex($justify: space-around);
+                    flex-wrap: wrap;
+                    text-align: center;
+                    .nav-link {
+                        width: 20%;
+                        margin: 5px;
+                    }
+                }
+            }
+        }
+    }
+    
 }
