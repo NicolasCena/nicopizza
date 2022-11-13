@@ -43,6 +43,15 @@
 
     "unit_price": "Prezzo unitario",
     "pizza_size": "Pizza taglia",
-    "add": "Aggiungere"
+    "add": "Aggiungere",
+    "total": "Totale",
+    "pizza_name": "Nome della pizza",
+    "units": "Unità",
+    "shopping_cart": "carrello della spesa",
+    "delete": "Elimina",
+    "buy": "comprare",
+    "add_more": "Continua lo shopping",
+    "median": "Mediano",
+    "family": "Famiglia"
 }
 

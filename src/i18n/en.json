@@ -42,6 +42,15 @@
 
     "unit_price": "Unit Price",
     "pizza_size": "Pizza size",
-    "add": "Add"
+    "add": "Add",
+    "total": "Total",
+    "pizza_name": "Pizza name",
+    "units": "Units",
+    "shopping_cart": "shopping cart",
+    "delete": "Delete",
+    "buy": "Buy",
+    "add_more": "Continue shopping",
+    "median": "Median",
+    "family": "Family"
 }
 
