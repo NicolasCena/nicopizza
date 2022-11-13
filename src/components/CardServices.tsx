@@ -12,7 +12,7 @@ interface props {
 }
 
 export const CardServices = ({ textCard, titleCard, source, counter}: props) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div id="services_component">
       <div className='card'>

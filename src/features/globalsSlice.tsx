@@ -1,21 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../redux/store';
 
+
 export interface GlobalsState {
     isLoged: boolean,
     nameUser: string,
     carrito: product[],
+    total: number
 }
 interface product {
   pizzaName: string,
   quantity: number,
-  pizzaType: string
+  pizzaType: string,
+  priceUnity: number,
+  id: string
 }
 
 const initialState: GlobalsState = {
   isLoged: false,
   nameUser: '',
-  carrito: []
+  carrito: [],
+  total: 0
 };
 
 export const globalsSlice = createSlice({
@@ -26,46 +31,36 @@ export const globalsSlice = createSlice({
       state.isLoged = action.payload;
     },
     addProduct: (state, action: PayloadAction<Array<product>>) => {
-      state.carrito = action.payload
+      localStorage.setItem('carActual', JSON.stringify(action.payload));
+      state.carrito = action.payload;    
     },
-    restProduct: (state, action: PayloadAction<product>) => {
-      //Corroboramos que existe la pizza y el mismo tipo
-      const newArray = state.carrito.filter( item => 
-        ((item.pizzaName.toLowerCase() === action.payload.pizzaName.toLowerCase()) && 
-        (item.pizzaType.toLowerCase() === action.payload.pizzaType.toLowerCase()))
-      );
+    restProduct: (state, action: PayloadAction<Array<product>>) => {
+      localStorage.setItem('carActual', JSON.stringify(action.payload));
+      state.carrito = action.payload;    
+    },
+    deleteProduct: (state, action: PayloadAction<Array<product>>) => {
+      localStorage.setItem('carActual', JSON.stringify(action.payload));
 
-      let addOne;
-
-      if(newArray.length > 0 && newArray[0]){
-        addOne = { pizzaName: newArray[0].pizzaName, quantity: newArray[0].quantity - 1, pizzaType: newArray[0].pizzaType }
-        let arraySinItem;
-
-        if(addOne.quantity === 0){
-          arraySinItem = state.carrito.filter( item => 
-            ((item.pizzaName.toLowerCase() !== action.payload.pizzaName.toLowerCase()) && 
-            (item.pizzaType.toLowerCase() !== action.payload.pizzaType.toLowerCase()))
-          )
-
-          state.carrito = arraySinItem;
-
-        }else{
-          state.carrito = [...state.carrito, addOne];
-        }
+      if(action.payload.length === 0){
+        state.total = 0;
       }
+      state.carrito = action.payload;
     },
-    deleteProduct: (state, action: PayloadAction<product>) => {
-      //Corroboramos que existe la pizza y el mismo tipo
-      const newArray = state.carrito.filter( item => 
-        ((item.pizzaName.toLowerCase() !== action.payload.pizzaName.toLowerCase()) && 
-        (item.pizzaType.toLowerCase() !== action.payload.pizzaType.toLowerCase()))
-      );
-      state.carrito = newArray;
+    restTotal: (state, action: PayloadAction<number>) => {
+      localStorage.setItem('total', JSON.stringify(state.total - action.payload));
+      state.total -= action.payload;
     },
+    addTotal: (state, action: PayloadAction<number>) => {
+      localStorage.setItem('total', JSON.stringify(state.total + action.payload));
+      state.total += action.payload;
+    },
+    addTotalFromLocal: (state, action: PayloadAction<number>) => {
+      state.total = action.payload;
+    }
   },
 });
 
-export const { changeLog, deleteProduct, restProduct, addProduct } = globalsSlice.actions;
+export const { changeLog, deleteProduct, restProduct, addProduct, restTotal, addTotal, addTotalFromLocal} = globalsSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
