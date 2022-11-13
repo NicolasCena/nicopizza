@@ -6,17 +6,18 @@ import flagGB from '../assets/flagGB.png';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPizzaSlice, faCartShopping} from '@fortawesome/free-solid-svg-icons';
-import { CarItems } from './CarItems';
+import { CarItems } from './ShoppingCarModal';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 export const NavBar = () => {
 
-  const { t, i18n } = useTranslation();
-
+  const { i18n } = useTranslation();
   const changeLanguage = (lng:string) => {
       i18n.changeLanguage(lng);
   };
 
-  const [modalShow, setModalShow] = useState(false);
+  const { carrito } = useAppSelector( state => state.globals);
+  const [ modalShow, setModalShow ] = useState(false);
 
   return (
     <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top" >
@@ -38,10 +39,15 @@ export const NavBar = () => {
               <img src={flagItaly} alt="" onClick={() => changeLanguage('it')}/>
               <img src={flagGB} alt="" onClick={() => changeLanguage('en')}/>
             </Nav.Link>
-            <Nav.Link href="#link" eventKey="3">
-              <FontAwesomeIcon icon={faCartShopping} onClick={() => setModalShow(true)}/>
-              <CarItems show={modalShow} onHide={() => setModalShow(false)} />
-            </Nav.Link>
+            {
+              carrito.length > 0 
+              && (
+              <Nav.Link href="#link" eventKey="3">
+                <FontAwesomeIcon icon={faCartShopping} onClick={() => setModalShow(true)}/>
+                <CarItems show={modalShow} onHide={() => setModalShow(false)} />
+              </Nav.Link>
+              )
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>

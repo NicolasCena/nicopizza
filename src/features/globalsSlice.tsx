@@ -5,18 +5,21 @@ export interface GlobalsState {
     isLoged: boolean,
     nameUser: string,
     carrito: product[],
+    total: number
 }
 interface product {
   pizzaName: string,
   quantity: number,
   pizzaType: string,
-  priceUnity: number
+  priceUnity: number,
+  id: string
 }
 
 const initialState: GlobalsState = {
   isLoged: false,
   nameUser: '',
-  carrito: []
+  carrito: [],
+  total: 0
 };
 
 export const globalsSlice = createSlice({
@@ -28,24 +31,26 @@ export const globalsSlice = createSlice({
     },
     addProduct: (state, action: PayloadAction<Array<product>>) => {
       state.carrito = action.payload
-
-      console.log(state.carrito)
     },
     restProduct: (state, action: PayloadAction<Array<product>>) => {
       state.carrito = action.payload
     },
-    deleteProduct: (state, action: PayloadAction<product>) => {
+    deleteProduct: (state, action: PayloadAction<Array<product>>) => {
       //Corroboramos que existe la pizza y el mismo tipo
-      const newArray = state.carrito.filter( item => 
-        ((item.pizzaName.toLowerCase() !== action.payload.pizzaName.toLowerCase()) && 
-        (item.pizzaType.toLowerCase() !== action.payload.pizzaType.toLowerCase()))
-      );
-      state.carrito = newArray;
+      state.carrito = action.payload;
+    },
+    restTotal: (state, action: PayloadAction<number>) => {
+      //Corroboramos que existe la pizza y el mismo tipo
+      state.total -= action.payload;
+    },
+    addTotal: (state, action: PayloadAction<number>) => {
+      //Corroboramos que existe la pizza y el mismo tipo
+      state.total += action.payload;
     },
   },
 });
 
-export const { changeLog, deleteProduct, restProduct, addProduct } = globalsSlice.actions;
+export const { changeLog, deleteProduct, restProduct, addProduct, restTotal, addTotal} = globalsSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
